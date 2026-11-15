@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "packages": [
+    {
+      "name": "@ai-sdk/tencent",
+      "reviewedVersion": "3.0.3",
+      "ledgerKind": "provider",
+      "evidence": "Packages/swift-ai-tencent/Porting/upstream-tests.json; Packages/swift-ai-tencent/Porting/integration.json",
+      "reviewStatus": "reviewed",
+      "archiveIntegrity": "sha512-qDD3ZPVnw8EAnVq+foU7afbfplpBO1n8XbUTpu7dwl5dG2AWhsdyXcpaSNqo0fyFPldyt5cMNRvVmFKy24IdDw==",
+      "sourceRef": "npm:@ai-sdk/tencent@3.0.3",
+      "testRef": "8bc7652cdb13fc84722666eb93f45acd0d131eee",
+      "testRefRelationship": "matching-release",
+      "contractFamilies": [
+        "ProviderV4",
+        "LanguageModelV4",
+        "VideoModelV4"
+      ],
+      "contractReview": "Complete native TokenHub chat/Kling video and TC3 VOD provider components; release-matched upstream scenarios translated and mixed per-file media types preserved. JS workflow/Zod lifecycle excluded explicitly. No paid/live-service verification."
+    }
+  ]
+}

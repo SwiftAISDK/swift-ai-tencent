@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "package": "swift-ai-tencent",
+  "status": "reviewed",
+  "upstream": [
+    {
+      "name": "@ai-sdk/tencent",
+      "implementation": [
+        "packages/tencent/src"
+      ],
+      "tests": [
+        "packages/tencent/src/lazy-schemas.test.ts",
+        "packages/tencent/src/tencent-cloud-api.test.ts",
+        "packages/tencent/src/tencent-provider.test.ts",
+        "packages/tencent/src/tencent-video-model.test.ts"
+      ]
+    }
+  ],
+  "swift": {
+    "sources": [
+      "Sources/SwiftAITencent/TencentCloudAPI.swift",
+      "Sources/SwiftAITencent/TencentProvider.swift",
+      "Sources/SwiftAITencent/TencentResponseValidation.swift",
+      "Sources/SwiftAITencent/TencentTokenHubVideo.swift",
+      "Sources/SwiftAITencent/TencentVideoModel.swift",
+      "Sources/SwiftAITencent/TencentVideoOptions.swift",
+      "Sources/SwiftAITencent/TencentVodVideo.swift"
+    ],
+    "tests": [
+      "Tests/SwiftAITencentTests/TencentCloudUpstreamTests.swift",
+      "Tests/SwiftAITencentTests/TencentNativeIntegrationTests.swift",
+      "Tests/SwiftAITencentTests/TencentProviderUpstreamTests.swift",
+      "Tests/SwiftAITencentTests/TencentTestSupport.swift",
+      "Tests/SwiftAITencentTests/TencentVideoFixtures.swift",
+      "Tests/SwiftAITencentTests/TencentVideoUpstreamTests.swift"
+    ],
+    "resources": []
+  },
+  "differences": [
+    {
+      "kind": "native-adaptation",
+      "reason": "Foundation Data/AITransport/Sendable replace Fetch/Uint8Array. Typed AIError preserves status, retryability, raw body and headers. JavaScript workflow serialization and Zod lazy-schema module construction/caching have no Swift surface."
+    },
+    {
+      "kind": "native-adaptation",
+      "reason": "VideoGenerationRequest has a required prompt string; empty prompt maps to the absent upstream prompt. Per-file video MIME associations are preserved in videoURLDescriptors; the original urls/common mediaType selectors remain compatible."
+    }
+  ],
+  "reviewNote": "Initial complete portable @ai-sdk/tencent 3.0.3 port. Published archive integrity and exact matching-release tests verified at 8bc7652cdb13fc84722666eb93f45acd0d131eee. Per-file/per-scenario translated tests and genuine platform exclusions: Packages/swift-ai-tencent/Porting/upstream-tests.json. Full package checks and canonical integration remain required. Narrow owning suite passes25 tests in4 suites; TokenHub streaming, rotating keys, cancellation/options validation and mixed-MIME VOD associations have native supplements.",
+  "canonicalOnlyReferences": [],
+  "canonicalDirectory": "Packages/swift-ai-tencent"
+}

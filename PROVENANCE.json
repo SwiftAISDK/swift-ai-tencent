@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "package": "swift-ai-tencent",
+  "version": "1.0.0",
+  "releaseID": "weekly-upstream-20261115",
+  "source": {
+    "commit": "1e543b35e0259a5bda888665dacf2d4a7f1bb0ed",
+    "baseCommit": "1e543b35e0259a5bda888665dacf2d4a7f1bb0ed",
+    "workingTree": false,
+    "inputsSHA256": "5508ffc6347bffaed13fb29409eb856df9a7796d3ebdcb6f623d1e8871b52999"
+  },
+  "dependencies": [
+    {
+      "package": "swift-ai-core",
+      "from": "1.5.0"
+    },
+    {
+      "package": "swift-ai-openai-compatible",
+      "from": "1.2.1"
+    }
+  ],
+  "changes": [
+    {
+      "id": "weekly-upstream-20261115",
+      "notes": "Add Tencent TokenHub chat/streaming and Kling video, plus TC3-signed Tencent Cloud VOD start/status operations with independent lazy credentials. Preserve current media options, billing/error metadata, cancellation and per-file MOV/MP4/WebM media types. Translate all portable 3.0.3 matching-release scenarios and published TC3 signature vectors. Validation passed: node Scripts/test-packages.mjs (55 owning packages, 2451 owning tests and 1736 compatibility tests), generation checks, 27 tooling tests, isolation/version checks, deterministic exports and minimum-dependency consumers. Documentation check/build passed (104 pages). Publication is gated by exact-source Swift 6.3.3 CI; subsequent public refs and clients are recorded in Docs/ReleaseVerification20261115.json. Paid/live-service checks were not run; this delta does not claim full-package parity.",
+      "compatibility": "Initial independent SwiftPM package 1.0.0. Requires swift-ai-core 1.5.0, swift-ai-openai-compatible 1.2.1. Existing package selectors remain unchanged. JavaScript workflow/lifecycle-only exclusions and native representation differences are documented."
+    }
+  ],
+  "canonicalDirectory": "Packages/swift-ai-tencent",
+  "upstream": [
+    {
+      "name": "@ai-sdk/tencent",
+      "reviewedVersion": "3.0.3",
+      "ledgerKind": "provider",
+      "evidence": "Packages/swift-ai-tencent/Porting/upstream-tests.json; Packages/swift-ai-tencent/Porting/integration.json",
+      "reviewStatus": "reviewed",
+      "archiveIntegrity": "sha512-qDD3ZPVnw8EAnVq+foU7afbfplpBO1n8XbUTpu7dwl5dG2AWhsdyXcpaSNqo0fyFPldyt5cMNRvVmFKy24IdDw==",
+      "sourceRef": "npm:@ai-sdk/tencent@3.0.3",
+      "testRef": "8bc7652cdb13fc84722666eb93f45acd0d131eee",
+      "testRefRelationship": "matching-release",
+      "contractFamilies": [
+        "ProviderV4",
+        "LanguageModelV4",
+        "VideoModelV4"
+      ],
+      "contractReview": "Complete native TokenHub chat/Kling video and TC3 VOD provider components; release-matched upstream scenarios translated and mixed per-file media types preserved. JS workflow/Zod lifecycle excluded explicitly. No paid/live-service verification."
+    }
+  ],
+  "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
+  "canonicalInputs": [
+    {
+      "canonicalPath": ".github/workflows/package-check.yml",
+      "sha256": "7ff448e130f7aed96c38accdf828b6d993997ebc5317358347e9a70a649e67ca"
+    },
+    {
+      "canonicalPath": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Package.swift",
+      "sha256": "18abc6b8f59a09b50a3140194066204b313ee2aa752d0aa3286df6f155e68428"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Porting/map.json",
+      "sha256": "a020a1744667d74cc11ea48865208059fceb40f39edcccdc4546549043d2e9a9"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/README.md",
+      "sha256": "e75df5e170fb99365cf1e1dd1cddaf07264d2fe358ccee2e36c8ab5300385dc6"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentCloudAPI.swift",
+      "sha256": "b302b69cab1681e9f94683b3bc6d5f01042f387447af067edb58399adba255c8"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentProvider.swift",
+      "sha256": "f9fab064d060471e61758d7a2f7cd72ef49a8a6383b30bdb9b0c967041511f64"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentResponseValidation.swift",
+      "sha256": "806f36cdac82e1f7a81e7e44a5ca234cfe9bea34ba6b463cbeb50c776fd08ee4"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentTokenHubVideo.swift",
+      "sha256": "1ca0f40acf5ba051fd52ca467b60f71cf5f28f0974c1957ea9b6df4a31eb4770"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentVideoModel.swift",
+      "sha256": "34d959531672cf79bec3029513328ae226b4f12fcf2a31fce606c051b132a921"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentVideoOptions.swift",
+      "sha256": "87699856a6813796c484bfc59a9c364111614fd2bc02300c64bbf8bff14b2783"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentVodVideo.swift",
+      "sha256": "9d7169f5cd33a86aa14b9735de4e85ce0a954cde8a7ed5b93c618f32a9e5d486"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Tests/SwiftAITencentTests/TencentCloudUpstreamTests.swift",
+      "sha256": "9f75108de15daeccc04a2b18bff732227ce93e7a204659e753c0fdc334392ba7"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Tests/SwiftAITencentTests/TencentNativeIntegrationTests.swift",
+      "sha256": "13e888d71b8848818da2d8bf6c06962f60923fd465bf78b5419dc0f5b41ffd14"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Tests/SwiftAITencentTests/TencentProviderUpstreamTests.swift",
+      "sha256": "620967a04538cf260f155f7c40cef41b66d0c3dd6b811948d4ef01338ca50637"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Tests/SwiftAITencentTests/TencentTestSupport.swift",
+      "sha256": "33aa3e64b08659667880971f07d42371311b7988f0f13cf620cdd0231d6cc996"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Tests/SwiftAITencentTests/TencentVideoFixtures.swift",
+      "sha256": "770b1dd323a20272e0cb19bb1d0ff11cf4de054f19091a418cd2f4ab86881401"
+    },
+    {
+      "canonicalPath": "Packages/swift-ai-tencent/Tests/SwiftAITencentTests/TencentVideoUpstreamTests.swift",
+      "sha256": "323a468c000b2cfa5ee5f5d4af60fd9e968cdf9a3dd5a8b5b2bb4e838e4848da"
+    }
+  ]
+}
