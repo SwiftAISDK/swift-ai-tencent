@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "package": "swift-ai-tencent",
-  "version": "1.0.0",
-  "releaseID": "weekly-upstream-20261115",
+  "version": "1.0.1",
+  "releaseID": "weekly-upstream-20261122",
   "source": {
-    "commit": "1e543b35e0259a5bda888665dacf2d4a7f1bb0ed",
-    "baseCommit": "1e543b35e0259a5bda888665dacf2d4a7f1bb0ed",
+    "commit": "73e28c7d4106338c3030bc36700c5922aeb2ebd9",
+    "baseCommit": "73e28c7d4106338c3030bc36700c5922aeb2ebd9",
     "workingTree": false,
-    "inputsSHA256": "5508ffc6347bffaed13fb29409eb856df9a7796d3ebdcb6f623d1e8871b52999"
+    "inputsSHA256": "5b64cfae284ecf9a081f1c08d5b5dff83915b3c57b62669a3408e51a52961cb5"
   },
   "dependencies": [
     {
@@ -21,29 +21,29 @@
   ],
   "changes": [
     {
-      "id": "weekly-upstream-20261115",
-      "notes": "Add Tencent TokenHub chat/streaming and Kling video, plus TC3-signed Tencent Cloud VOD start/status operations with independent lazy credentials. Preserve current media options, billing/error metadata, cancellation and per-file MOV/MP4/WebM media types. Translate all portable 3.0.3 matching-release scenarios and published TC3 signature vectors. Validation passed: node Scripts/test-packages.mjs (55 owning packages, 2451 owning tests and 1736 compatibility tests), generation checks, 27 tooling tests, isolation/version checks, deterministic exports and minimum-dependency consumers. Documentation check/build passed (104 pages). Publication is gated by exact-source Swift 6.3.3 CI; subsequent public refs and clients are recorded in Docs/ReleaseVerification20261115.json. Paid/live-service checks were not run; this delta does not claim full-package parity.",
-      "compatibility": "Initial independent SwiftPM package 1.0.0. Requires swift-ai-core 1.5.0, swift-ai-openai-compatible 1.2.1. Existing package selectors remain unchanged. JavaScript workflow/lifecycle-only exclusions and native representation differences are documented."
+      "id": "weekly-upstream-20261122",
+      "notes": "Align the provider request identity with @ai-sdk/tencent 3.0.5 after comparing source, declarations and matching-release tests against 3.0.3. Offline validation passed: node Scripts/test-packages.mjs (56 packages, 3672 owning tests and 1760 compatibility tests), generation, tooling, isolation, and version selection. See Docs/Archive/WeeklyUpstreamAudit20261122.md for retained gaps. Paid provider calls were skipped.",
+      "compatibility": "Source-compatible request-header update."
     }
   ],
   "canonicalDirectory": "Packages/swift-ai-tencent",
   "upstream": [
     {
       "name": "@ai-sdk/tencent",
-      "reviewedVersion": "3.0.3",
+      "reviewedVersion": "3.0.5",
       "ledgerKind": "provider",
-      "evidence": "Packages/swift-ai-tencent/Porting/upstream-tests.json; Packages/swift-ai-tencent/Porting/integration.json",
+      "evidence": "Packages/swift-ai-tencent/Porting/upstream-tests.json; Packages/swift-ai-tencent/Porting/integration.json; 2026-11-22 delta: Docs/Archive/WeeklyUpstreamAudit20261122.json",
       "reviewStatus": "reviewed",
-      "archiveIntegrity": "sha512-qDD3ZPVnw8EAnVq+foU7afbfplpBO1n8XbUTpu7dwl5dG2AWhsdyXcpaSNqo0fyFPldyt5cMNRvVmFKy24IdDw==",
-      "sourceRef": "npm:@ai-sdk/tencent@3.0.3",
-      "testRef": "8bc7652cdb13fc84722666eb93f45acd0d131eee",
+      "archiveIntegrity": "sha512-tHpv7s0BWNm0IFGECgPtrenfp9HsZqG9cb5iPr2V0U0gw2PZemNv+zwYYuLlW/RlAR6+35vaQesQCXjefWWx5Q==",
+      "sourceRef": "npm:@ai-sdk/tencent@3.0.5",
+      "testRef": "3dad57f204c7332178d28c3467c7311875b66a3e",
       "testRefRelationship": "matching-release",
       "contractFamilies": [
         "ProviderV4",
         "LanguageModelV4",
         "VideoModelV4"
       ],
-      "contractReview": "Complete native TokenHub chat/Kling video and TC3 VOD provider components; release-matched upstream scenarios translated and mixed per-file media types preserved. JS workflow/Zod lifecycle excluded explicitly. No paid/live-service verification."
+      "contractReview": "2026-11-22: reviewed the published source and declarations and the matching-release test diffs. Native evidence and explicitly retained coverage gaps are in Docs/Archive/WeeklyUpstreamAudit20261122.json."
     }
   ],
   "note": "Independent port. Imported test refs and contract review gaps retain their original status; export is not new upstream parity proof.",
@@ -66,7 +66,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-tencent/README.md",
-      "sha256": "e75df5e170fb99365cf1e1dd1cddaf07264d2fe358ccee2e36c8ab5300385dc6"
+      "sha256": "c4375b090e798e04d8d1d898cdfd13cd61fb2aba9066a02c1fd5b544fe799c28"
     },
     {
       "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentCloudAPI.swift",
@@ -74,7 +74,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentProvider.swift",
-      "sha256": "f9fab064d060471e61758d7a2f7cd72ef49a8a6383b30bdb9b0c967041511f64"
+      "sha256": "90a7022b42995ff6e02aa90664bc5315041cc68516269a8a365a7a1c45fb571f"
     },
     {
       "canonicalPath": "Packages/swift-ai-tencent/Sources/SwiftAITencent/TencentResponseValidation.swift",
@@ -106,7 +106,7 @@
     },
     {
       "canonicalPath": "Packages/swift-ai-tencent/Tests/SwiftAITencentTests/TencentProviderUpstreamTests.swift",
-      "sha256": "620967a04538cf260f155f7c40cef41b66d0c3dd6b811948d4ef01338ca50637"
+      "sha256": "197072630acddc8f6e718a36e6a210d5451a7eb8a456c61ede0800b6fc4e22a3"
     },
     {
       "canonicalPath": "Packages/swift-ai-tencent/Tests/SwiftAITencentTests/TencentTestSupport.swift",
